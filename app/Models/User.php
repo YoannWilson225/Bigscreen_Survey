@@ -3,10 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Question;
+use App\Models\Response;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -22,6 +24,18 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+
+    // Relation avec les questions
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+
+    // Relation avec les réponses
+    public function responses()
+    {
+        return $this->hasMany(Response::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

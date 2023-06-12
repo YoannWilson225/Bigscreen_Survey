@@ -1,6 +1,8 @@
 <?php
 
+
 namespace Database\Seeders;
+use Database\Seeders\QuestionSeeder;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -12,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $this->call(QuestionSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
